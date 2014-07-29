@@ -250,6 +250,9 @@
 		isNumber = helpers.isNumber = function(n){
 			return !isNaN(parseFloat(n)) && isFinite(n);
 		},
+		isObject = helpers.isObject = function(o){
+			return typeof o === 'object';
+		},
 		max = helpers.max = function(array){
 			return Math.max.apply( Math, array );
 		},
@@ -2020,6 +2023,16 @@
 							fillColor : dataset.fillColor,
 							highlightFill : dataset.highlightFill || dataset.fillColor,
 							highlightStroke : dataset.highlightStroke || dataset.strokeColor
+						}));
+					} else if (helpers.isObject(dataPoint)) {
+						datasetObject.bars.push(new this.BarClass({
+							value : dataPoint.value,
+							label : data.labels[index],
+							datasetLabel: dataset.label,
+							strokeColor : dataPoint.strokeColor || dataset.strokeColor,
+							fillColor : dataPoint.fillColor || dataset.fillColor,
+							highlightFill : dataPoint.highlightFill || dataPoint.fillColor || dataset.highlightFill || dataset.fillColor,
+							highlightStroke : dataPoint.highlightStroke || dataPoint.strokeColor || dataset.highlightStroke || dataset.strokeColor
 						}));
 					}
 				},this);
