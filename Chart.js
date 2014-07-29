@@ -2022,7 +2022,8 @@
 							strokeColor : dataset.strokeColor,
 							fillColor : dataset.fillColor,
 							highlightFill : dataset.highlightFill || dataset.fillColor,
-							highlightStroke : dataset.highlightStroke || dataset.strokeColor
+							highlightStroke : dataset.highlightStroke || dataset.strokeColor,
+							index: index
 						}));
 					} else if (helpers.isObject(dataPoint)) {
 						datasetObject.bars.push(new this.BarClass({
@@ -2032,7 +2033,8 @@
 							strokeColor : dataPoint.strokeColor || dataset.strokeColor,
 							fillColor : dataPoint.fillColor || dataset.fillColor,
 							highlightFill : dataPoint.highlightFill || dataPoint.fillColor || dataset.highlightFill || dataset.fillColor,
-							highlightStroke : dataPoint.highlightStroke || dataPoint.strokeColor || dataset.highlightStroke || dataset.strokeColor
+							highlightStroke : dataPoint.highlightStroke || dataPoint.strokeColor || dataset.highlightStroke || dataset.strokeColor,
+							index: index
 						}));
 					}
 				},this);
