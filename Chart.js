@@ -2027,7 +2027,7 @@
 					} else if (helpers.isObject(dataPoint)){
 						//Add a new point for each piece of data, passing any required data to draw.
 						datasetObject.bars.push(new this.BarClass({
-							value : dataPoint,
+							value : dataPoint.value,
 							label : dataPoint.label || data.labels[index],
 							datasetLabel: dataset.label,
 							strokeColor : dataPoint.strokeColor || dataset.strokeColor,
