@@ -100,7 +100,7 @@
 				helpers.each(dataset.data,function(dataPoint,index){
 					//Best way to do this? or in draw sequence...?
 					if (helpers.isNumber(dataPoint)){
-					//Add a new point for each piece of data, passing any required data to draw.
+						//Add a new point for each piece of data, passing any required data to draw.
 						datasetObject.points.push(new this.PointClass({
 							value : dataPoint,
 							label : data.labels[index],
@@ -108,7 +108,19 @@
 							strokeColor : dataset.pointStrokeColor,
 							fillColor : dataset.pointColor,
 							highlightFill : dataset.pointHighlightFill || dataset.pointColor,
-							highlightStroke : dataset.pointHighlightStroke || dataset.pointStrokeColor
+							highlightStroke : dataset.pointHighlightStroke || dataset.pointStrokeColor,
+							index: index
+						}));
+					} else if (helpers.isObject(dataPoint)){
+						datasetObject.points.push(new this.PointClass({
+							value : dataPoint.value,
+							label : dataPoint.label || data.labels[index],
+							datasetLabel: dataset.label,
+							strokeColor : dataPoint.pointStrokeColor || dataset.pointStrokeColor,
+							fillColor : dataPoint.pointColor || dataset.pointColor,
+							highlightFill : dataPoint.pointHighlightFill || dataPoint.pointColor || dataset.pointHighlightFill || dataset.pointColor,
+							highlightStroke : dataPoint.pointHighlightStroke || dataPoint.pointStrokeColor || dataset.pointHighlightStroke || dataset.pointStrokeColor,
+							index: index
 						}));
 					}
 				},this);

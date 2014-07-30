@@ -115,6 +115,17 @@
 							highlightFill : dataset.highlightFill || dataset.fillColor,
 							highlightStroke : dataset.highlightStroke || dataset.strokeColor
 						}));
+					} else if (helpers.isObject(dataPoint)){
+						//Add a new point for each piece of data, passing any required data to draw.
+						datasetObject.bars.push(new this.BarClass({
+							value : dataPoint,
+							label : dataPoint.label || data.labels[index],
+							datasetLabel: dataset.label,
+							strokeColor : dataPoint.strokeColor || dataset.strokeColor,
+							fillColor : dataPoint.fillColor || dataset.fillColor,
+							highlightFill : dataPoint.highlightFill || dataPoint.fillColor || dataset.highlightFill || dataset.fillColor,
+							highlightStroke : dataPoint.highlightStroke || dataPoint.strokeColor || dataset.highlightStroke || dataset.strokeColor
+						}));
 					}
 				},this);
 

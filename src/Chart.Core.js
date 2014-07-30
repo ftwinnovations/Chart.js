@@ -250,6 +250,9 @@
 		isNumber = helpers.isNumber = function(n){
 			return !isNaN(parseFloat(n)) && isFinite(n);
 		},
+		isObject = helpers.isObject = function(o){
+			return typeof o === 'object';
+		},
 		max = helpers.max = function(array){
 			return Math.max.apply( Math, array );
 		},
